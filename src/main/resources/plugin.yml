@@ -1,5 +1,5 @@
 name: customNature
-main: main.Main
+main: cnat_main.Main
 version: 0.0.1-SNAPSHOT
 
 

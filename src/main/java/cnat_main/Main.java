@@ -1,4 +1,4 @@
-package main;
+package cnat_main;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -257,7 +257,7 @@ public class Main extends JavaPlugin{
 		 mainMenu.setItem(2, rangeView);
 		 mainMenu.setItem(6, airView);
 	 }
-	 
+	 @Override
 	 public void onEnable(){
 	    	File f = getDataFolder();
 			if (!f.exists()){
@@ -273,6 +273,10 @@ public class Main extends JavaPlugin{
 			is.setItemMeta(im);
 	 }
 	 @Override
+	 public void onDisable(){
+		 HandlerList.unregisterAll(this);
+	 }
+	 @Override
 	 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 			if (cmd.getName().equalsIgnoreCase("cnat")) {
 				Player pl =((Player) sender);
@@ -286,7 +290,4 @@ public class Main extends JavaPlugin{
 			}
 			return true;
 	 }
-	 public void onDisable(){
-			HandlerList.unregisterAll();
-	}
 }
